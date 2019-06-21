@@ -16,6 +16,7 @@ colormap(gray(255))
 figure
 image(angle(input),'CDataMapping','scaled');
 colormap(gray(255))
+display('Lalala!')
 % ----------------------------------------------------------
 tic
 [output] = ft(c, d, m, wavelength, z, h1, h2, input, x, y);
