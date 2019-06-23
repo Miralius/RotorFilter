@@ -1,12 +1,17 @@
-function [output] = ft(c, d, m, h1, h2, input, x, y)
+function [output] = ft(c, d, m, h1, h2, input, x, y, z, wavelength)
 hh1=2*c/m;
 u=-c:hh1:c-hh1;
 hh2=2*d/m;
 v=-d:hh2:d-hh2;
 xu=x.'*u;
 yv=y.'*v;
-A=exp(-2*pi*1i*xu).';
-B=exp(-2*pi*1i*yv);
+uu=u.'*u;
+vv=v.'*v;
+sqrtsin=(sqrt(uu+vv)/z);
+sqrtcos=sqrt(1-sqrtsin*sqrtsin);
+l_x_y_ph=x.*sqrtsin+y.*sqrtcos;
+A=exp(-((2*pi*1i*xu)/wavelength)*sqrtsin*l_x_y_ph).';
+B=exp(-((2*pi*1i*yv)/wavelength)*sqrtsin*l_x_y_ph);
 output=A*B*input*h1*h2;
 end
 
