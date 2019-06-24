@@ -3,10 +3,8 @@ h1=2*a/n;
 x=-a:h1:a-h1;
 h2=2*b/n;
 y=-b:h2:b-h2;
-gxy=zeros(n, 1);
-for j=1:n
-    gxy(j)=const;
-end
-fxy=exp(-(1i*mm*atan2(y,x)));
+gxy=zeros(n, n);
+gxy(1:n,1:n)=const;
+fxy=exp(1i*mm*atan2(-y.',x));
 input=gxy*fxy;
 end
