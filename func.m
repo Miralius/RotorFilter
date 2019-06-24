@@ -5,6 +5,9 @@ h2=2*b/n;
 y=-b:h2:b-h2;
 gxy=zeros(n, n);
 gxy(1:n,1:n)=const;
+%input1=(exp(-(x.*x))).';
+%input2=(exp(-(y.*y)));
+%gxy=(input1*input2)/(2*const*const);
 fxy=exp(1i*mm*atan2(-y.',x));
 input=gxy*fxy;
 end
