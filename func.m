@@ -8,6 +8,14 @@ gxy(1:n,1:n)=const;
 %input1=(exp(-(x.*x))).';
 %input2=(exp(-(y.*y)));
 %gxy=(input1*input2)/(2*const*const);
-fxy=exp(1i*mm*atan2(-y.',x));
+angl=zeros(n, n);
+for j=1:n
+    if j<=n/2
+        angl(j,1:n) = atan2(-y(j)',x);
+    else
+        angl(j,1:n)=atan2(-y(j)',x) + 2*pi;
+    end
+end
+fxy=exp(1i*mm*angl);
 input=gxy.*fxy;
 end
