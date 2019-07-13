@@ -27,11 +27,11 @@ colormap(gray(255))
 % ----------------------------------------------------------
 tic
 [output1] = ft(c, d, m, h1, h2, input, x, y, z, wavelength);
-t=toc; %?????????????? ?????
+t=toc; %Fourier transform
 
 % tic
 % [output1] = fr(c, d, m, h1, h2, input, x, y, z, wavelength);
-% t=toc; %?????????????? ???????
+% t=toc; %Fresnel transform
 
 [output] = lFr(output1, x, y, wavelength, z);
 % --plots of output function--
