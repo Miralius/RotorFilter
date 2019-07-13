@@ -4,10 +4,10 @@ c=5;
 d=5;
 const=1;
 wavelength=0.00065;
-z=1000;
-n=1000;
-m=2000;
-mm=3;
+z=2500;
+n=5000;
+m=5000;
+mm=10;
 %nn=2;
 %refrIndex=1.2;
 % ----------------------------------------------------------
@@ -25,13 +25,15 @@ figure
 image(angle(input),'CDataMapping','scaled');
 colormap(gray(255))
 % ----------------------------------------------------------
-%tic
-%[output] = ft(c, d, m, h1, h2, input, x, y, z, wavelength);
-%t=toc; %?????????????? ?????
-
 tic
-[output] = fr(c, d, m, h1, h2, input, x, y, z, wavelength);
-t=toc; %?????????????? ???????
+[output1] = ft(c, d, m, h1, h2, input, x, y, z, wavelength);
+t=toc; %?????????????? ?????
+
+% tic
+% [output1] = fr(c, d, m, h1, h2, input, x, y, z, wavelength);
+% t=toc; %?????????????? ???????
+
+[output] = lFr(output1, x, y, wavelength, z);
 % --plots of output function--
 figure
 image(abs(output),'CDataMapping','scaled');
