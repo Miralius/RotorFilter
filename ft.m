@@ -11,10 +11,13 @@ yv=y.'*v;
 %sqrtcos=sqrt(1-sqrtsin.*sqrtsin);
 %A=(exp(-((2*pi*1i)/wavelength)*sqrtsin.'*(x.*sqrtsin))).';
 %B=exp(-((2*pi*1i)/wavelength)*sqrtsin.'*(y.*sqrtcos));
-A=exp(-((2*pi*1i*xu)/wavelength));
-B=exp(-((2*pi*1i*yv)/wavelength));
+%A=exp(-((2*pi*1i*xu)/wavelength));
+%B=exp(-((2*pi*1i*yv)/wavelength));
 %-(1i/(wavelength*z))*
-output=-(1i/(wavelength*z))*B.'*input*A*h1*h2;
+%output=A*B*input*h1*h2;
+A=exp((-2*pi*1i*xu)/(wavelength*z));
+B=exp((-2*pi*1i*yv)/(wavelength*z));
+output=A.'*input*B*h1*h2;
 end
 
 % function [output] = ft(c, d, m, wavelength, z, h1, h2, input, x, y)

@@ -6,8 +6,8 @@ const=1;
 wavelength=0.00065;
 z=5000;
 n=2000;
-m=5000;
-mm=2;
+m=2000;
+mm=10;
 % ----------------------------------------------------------
 [input, x, y, h1, h2] = func(a, b, n, const, mm, z, wavelength);
 % --plots of input function--
